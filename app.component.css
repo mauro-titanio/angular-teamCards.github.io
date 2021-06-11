@@ -1,0 +1,136 @@
+.card {
+  background-image: url("https://picsum.photos/500");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  color: white;
+  padding: 10em 0 0 0;
+  max-width: 35ch;
+  background-color: rgba(0, 0, 0, 0.4);
+  background-blend-mode: multiply;
+  overflow: hidden;
+  border-radius: 1em;
+  border: solid var(--primary);
+  transition: transform 500ms ease;
+  transition: background-color 500ms ease 500ms;
+}
+
+.card-body {
+  --padding: 1.5rem;
+  padding: var(--padding);
+  background: rgb(0, 0, 0);
+  background: linear-gradient(360deg, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+}
+
+
+
+.card:focus-within .card-body>* {
+  transition-duration: 0ms;
+  transition-delay: 0ms;
+}
+
+.card-title {
+  position: relative;
+  width: max-content;
+}
+
+.card-title::after {
+  content: "";
+  position: absolute;
+  height: 4px;
+  width: calc(100% + var(--padding));
+  background-color: var(--primary);
+  left: calc(var(--padding) * -1);
+  bottom: -0.2em;
+  transform-origin: left;
+  transition: transform 500ms ease;
+}
+
+a i {
+  color: white;
+  font-size: 1.6em;
+}
+
+a i:hover{
+  color: var(--accent);
+}
+.contact{
+  display: flex;
+  justify-content: space-around;
+}
+
+.abilities{
+  transition: 5000ms ease;
+}
+
+.hidden{
+  display: none;
+  opacity: 0;
+}
+
+.visible{
+  display: block;
+  opacity: 1;
+}
+
+
+.app-container{
+  width: 100%;
+  margin: 0;
+  display: block;
+  padding: none;
+}
+
+
+.person-image{
+  width: 100%;
+  margin: auto;
+}
+
+@media (hover) {
+
+  .card:hover,
+  .card:focus-within {
+    transform: scale(1.05);
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  .card-body {
+    transform: translateY(66%);
+    transition: transform 500ms ease;
+    transition-delay: 500ms;
+  }
+
+  .card-body>*:not(.card-title) {
+    opacity: 0;
+    transition: opacity 500ms linear;
+  }
+
+  .card-title::after {
+    transform: scaleX(0);
+  }
+
+  .card:hover .card-body,
+  .card:focus-within .card-body {
+    transform: translateY(0);
+  }
+
+  .card:focus-within .card-body {
+    transition-duration: 0ms;
+  }
+
+  .card:hover .card-body>*,
+  .card:focus-within .card-body>* {
+    transition-delay: 500ms;
+    opacity: 1;
+  }
+
+  .card:hover .card-title::after,
+  .card:focus-within .card-title::after {
+    transform: scaleX(1);
+  }
+
+  .card:focus-within .card-title::after {
+    transition-duration: 0ms;
+  }
+}
